@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Name Picker</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Random Name Picker</h1>
+    <label for="nameInput">Enter a name:</label>
+    <input type="text" id="nameInput">
+    <div class="button-container">
+    <button onclick="addName()">Add Name</button>
+    <button onclick="pickRandomNames()">Pick Random Names</button>
+    </div>
+    <h2>Entered Names:</h2>
+    <ul id="nameList"></ul>
+    <h2>Names Drawn:</h2>
+    <p id="randomNames"></p>
+
+    
+    
+    
+
+
+    <script>
+        const names = [];
+
+        function addName() {
+            const nameInput = document.getElementById("nameInput");
+            const nameList = document.getElementById("nameList");
+
+            const name = nameInput.value.trim();
+            if (name !== "") {
+                names.push(name);
+                nameList.innerHTML += `<li>${name}</li>`;
+                nameInput.value = "";
+            }
+        }
+        function handleEnterKey(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            addName();
+        }
+    }
+
+    // Attach the function to the input element's onkeydown event
+    const nameInput = document.getElementById("nameInput");
+    nameInput.addEventListener("keydown", handleEnterKey);
+
+        function pickRandomNames() {
+            const randomNamesOutput = document.getElementById("randomNames");
+
+            if (names.length < 2) {
+                randomNamesOutput.textContent = "Please enter at least two names.";
+                return;
+            }
+
+            const shuffledNames = shuffleArray(names.slice());
+
+            const firstRandomName = shuffledNames[0];
+            const secondRandomName = shuffledNames[1];
+
+            randomNamesOutput.textContent = `${firstRandomName} and ${secondRandomName}`;
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+    </script>
+</body>
+</html>

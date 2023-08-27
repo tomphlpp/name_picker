@@ -1,0 +1,62 @@
+/* styles.css */
+body {
+    font-family: Calibri, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+}
+
+#nameInput {
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+#randomNames {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #000000;
+}
